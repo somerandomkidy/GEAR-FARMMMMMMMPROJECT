@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME!</title>
+    <!-- Created by: [AUSTIN] -->
+<!-- Date: 2025-10-09 -->
+<!-- Description: This is a simple HTML page for a fictional farm equipment website. -->
+<!-- It includes a header, navigation menu, main content area, and footer. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <img class="logo" src="Farrm gear.png" alt="logo">
+        <ul class="nav">
+            <li><a href="bye.load.html"><i class="fa-solid fa-shop" style="color: #63E6BE;"></i>Buy equipment!</a></li>
+            <li><a href="morals_loading.html"><i class="fa-solid fa-hand-holding-heart" id="Morals" style="color: #2166de;"></i> Our Morals!</a></li>
+            <li><a href="loadingaboutus.html"><i class="fa-solid fa-address-card" id="about" style="color: #b38d05;"></i> About Us!</a></li>
+            <li><a href="contact_loading.html"><i class="fa-solid fa-envelope" id="Contact" style="color: #dc311e;"></i> Contact Us!</a></li>
+        </ul>
+        <p id="text">You Are already here!</p>
+    <a class="cta" href="#"><button>Home!</button></a>
+    
+</header>
+    <main>
+        <h1>Welcome to Gear farm!</h1>
+        <p id="p1">We are dedicated to providing the best farming equipment and resources for all your agricultural needs.</p>
+        <p id="p2">We offer a diverse selection of farming equipment, capable of supplying an entire farm on its own, and extra! Our website is perfect for all of your agricultural needs.</p>
+        <p id="p2">Our mission is to ensure that every farmer has access to the tools they need to succeed. We believe in the power of technology to transform agriculture and improve lives.</p>
+        <p id="p2">We are committed to sustainability and ethical practices in all aspects of our business. We strive to minimize our environmental impact and support local communities.</p>
+        <h2 id="p3"> if you would like you can see more on our other pages, simpily click on the options in the nav bar!</p>
+    </main>
+    <footer>
+        <h2>&copy; 2025 Gear farm. All rights reserved.</h2>
+    </footer>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color:  #0e3d2b;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+        }
+        .nav {
+            list-style-type: none;
+            padding: 0;
+        }
+        .nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .nav a {
+            color: rgb(51, 226, 17);
+            text-decoration: none;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+            color: #b49b0e;
+            transition: 0.5s;
+        }
+        .nav a:hover #equipment {
+            color: #63E6BE;
+        }
+        .nav a:hover #Morals {
+            color: #2166de;
+        }
+        .nav a:hover #about {
+            color: #b38d05;
+        }
+        .nav a:hover #Contact {
+            color: #dc311e;
+        }
+        header#text {
+            color: #0edbc0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        p#text {
+            color: #0e3d2b;
+            font-size: 0px;
+            font-weight: 500;
+            transition: 0.5s;
+            pointer-events: none;
+            padding: 20px ;
+        }
+        .cta {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .cta button {
+            font-size: 20px;
+            color: #0edbc0;
+            font-weight: bold;
+        }
+        .cta button {
+            background-color: #0edbc0;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: not-allowed;
+            transition: 0.5s;
+        }
+        .cta button:hover
+        {
+            background-color: #0e3d2b;
+            color: #d2e663;
+            font-weight: 500;
+            font-size: 0em;
+            transition: 0.5s;
+            cursor: not-allowed;
+        }
+        main {
+            padding: 20px;
+        }
+        p#p1:hover{
+            color: #b49b0e;
+
+        }
+        p#p2:hover{
+            color: #d8a80a;
+        }
+        footer {
+            background-color: #0e3d2b;
+            color: white;
+            text-align: center;
+            padding: 5px 1;
+            position: fixed;
+            width: 100%;
+            bottom: 1px;
+        }
+        h2#p3 
+        {
+            color: #0e3d2b;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px ;
+        }
+        h2#p3:hover{
+            color: #b49b0e;
+        }
+        </style>
+        <script>
+document.querySelector(".cta").addEventListener("mouseover", function() {
+    let textElement = document.getElementById("text");
+    textElement.style.color = "gold";
+    textElement.style.fontSize = "28px"; 
+});
+
+document.querySelector(".cta").addEventListener("mouseout", function() {
+    let textElement = document.getElementById("text");
+    textElement.style.color = "";
+    textElement.style.fontSize = ""; 
+});
+        </script>
+</body>
+</html>

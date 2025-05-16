@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME!</title>
+    <!-- Created by: [AUSTIN] -->
+<!-- Date: 2025-10-09 -->
+<!-- Description: This is a simple HTML page for a fictional farm equipment website. -->
+<!-- It includes a header, navigation menu, main content area, and footer. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <img class="logo" src="Farrm gear.png" alt="logo">
+        <ul class="nav">
+        </ul>
+        <p id="text">back to the home page!</p>
+    <a class="cta" href="loading_home.html"><button>Home!</button></a>
+    
+</header>
+    <main>
+        <h1>Please, contact us!</h1>
+        <p id="p1">We are dedicated to providing the best farming services for our customers. if you were displeased with your servlce, perhaps the server went down, or your order didn't go through, we would be happy to help you.</p> 
+        <Li><i class="fa-solid fa-person"> Email: taconolettuce@outlook.com</i></Li>
+        <Li><i class="fa-solid fa-phone"> Phone: 1-505-288-6827</i></Li>
+        <li><i class="fa-solid fa-location-dot"> Location: 1234 Farm Lane, Farmington, NM</i></li>
+        <p id="p2">We are committed to sustainability and ethical practices in all aspects of our business. We strive to minimize our environmental impact and support local communities.</p>
+        <h2>Check out our social medias!</h1>
+        <p id="p3">We are active on social media and would love to hear from you! Follow us on:</p>
+        <Li><i class="fa-brands fa-youtube"> BRITISHTOOTHPICK</i></Li>
+        <Li><i class="fa-brands fa-discord"> Britishtoothpick</i></Li>
+        <Li><i class="fa-brands fa-instagram"> Britishtoothpick</i></Li>
+        <Li><i class="fa-brands fa-xbox"> AUSTINRULES789</i></Li>
+        <p id="p4">We value your feedback, and are always looking for ways to improve our services! Please! do NOT hesitate to reach out to us! We will help you with any or your questions or concerns.</p>
+
+
+
+
+    </main>
+        <footer>
+        <h2>&copy; 2025 Gear farm. All rights reserved.</h2>
+    </footer>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color:  #0e3d2b;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+        }
+        .nav {
+            list-style-type: none;
+            padding: 0;
+        }
+        .nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .nav a {
+            color: rgb(51, 226, 17);
+            text-decoration: none;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+            color: #b49b0e;
+            transition: 0.5s;
+        }
+        .nav a:hover #equipment {
+            color: #63E6BE;
+        }
+        .nav a:hover #Morals {
+            color: #2166de;
+        }
+        .nav a:hover #about {
+            color: #b38d05;
+        }
+        .nav a:hover #Contact {
+            color: #dc311e;
+        }
+        header#text {
+            color: #0edbc0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        p#text {
+            color: #0e3d2b;
+            font-size: 0px;
+            font-weight: 500;
+            transition: 0.5s;
+            pointer-events: none;
+        }
+        .cta {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .cta button {
+            font-size: 20px;
+            color: #0edbc0;
+            font-weight: bold;
+        }
+        .cta button {
+            background-color: #0edbc0;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .cta button:hover
+        {
+            background-color: #0e3d2b;
+            color: #d2e663;
+            font-weight: 500;
+            font-size: 5em;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        main {
+            padding: 20px;
+            margin: 20px;
+        }
+        footer {
+            background-color: #0e3d2b;
+            color: white;
+            text-align: center;
+            padding: 0px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 4px;
+        }
+        li {
+            list-style-type: none;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        li i {
+            color: #106631;
+            font-size: 20px;
+            font-family: "Font Awesome 6 Free";
+            font-weight: 50;
+            font-weight: bold;
+        }
+        p#p4 {
+        padding: 20px;
+        margin: 20px;
+        line-height: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #0e3d2b;
+        }
+        p#p4:hover{
+            color: #b49b0e;
+        }
+
+        </style>
+        <script>
+document.querySelector(".cta").addEventListener("mouseover", function() {
+    let textElement = document.getElementById("text");
+    textElement.style.color = "gold";
+    textElement.style.fontSize = "28px"; 
+});
+
+document.querySelector(".cta").addEventListener("mouseout", function() {
+    let textElement = document.getElementById("text");
+    textElement.style.color = "";
+    textElement.style.fontSize = ""; 
+});
+        </script>
+</body>
+</html>

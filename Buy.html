@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy page</title>
+    <!--!-- Created by: [AUSTIN],also --> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <section>
+      <!-- Checkout Confirmation Modal -->
+      <div id="checkout-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+         <div style="background:#fff; border-radius:20px; padding:40px 30px; max-width:90vw; min-width:300px; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+         <h3 style="color:#333;">Confirm Purchase</h3>
+         <p style="font-size:18px; color:#222;">Looking good! Want to continue?</p>
+         <p style="font-size:20px; color:#216e03; font-weight:bold;">Total: $<span id="modal-total-price">0</span></p>
+         <div style="margin-top:24px;">
+            <button id="confirm-purchase" class="btn btn-success" style="margin-right:10px;">Yes, Confirm!</button>
+            <button id="cancel-purchase" class="btn btn-secondary">No, Cancel.</button>
+         </div>
+         </div>
+      </div>
+      <script>
+      // Show modal on checkout button click
+
+      document.addEventListener('DOMContentLoaded', function() {
+         var checkoutBtn = document.querySelector('.check-out');
+         var modal = document.getElementById('checkout-modal');
+         var modalTotal = document.getElementById('modal-total-price');
+         var cancelBtn = document.getElementById('cancel-purchase');
+         var confirmBtn = document.getElementById('confirm-purchase');
+         // Show modal when checkout button is clicked
+         checkoutBtn.addEventListener('click', function() {
+         // Get the current total price from the page
+         var total = document.getElementById('total-price').innerText;
+         modalTotal.innerText = total;
+         modal.style.display = 'flex';
+         });
+         cancelBtn.addEventListener('click', function() {
+         modal.style.display = 'none';
+         });
+
+         confirmBtn.addEventListener('click', function() {
+         modal.style.display = 'none';
+         alert('Thank you choosing us!');
+         });
+         
+
+         // Close modal when clicking outside of it
+
+         modal.addEventListener('click', function(e) {
+         if (e.target === modal) {
+            modal.style.display = 'none';
+         }
+         });
+      });
+   // Prevent checkout if total is zero
+   document.addEventListener('DOMContentLoaded', function() {
+      var checkoutBtn = document.querySelector('.check-out');
+      checkoutBtn.addEventListener('click', function(e) {
+      var total = parseFloat(document.getElementById('total-price').innerText);
+      if (total === 0) {
+         e.preventDefault();
+         alert('Make sure to add items to your cart before checking out!');
+         return false;
+      }
+      });
+   });
+      </script>
+<div class="container">
+   <img src="farm gear full.png" alt="" class="logo">
+   <p id="text">We hope You enjoyed your purchase!</p>
+   <a class="cta" href="loading_home.html"><button>Home!</button></a>
+   
+
+    <h2 class="px-5">Buy equipment</h2>
+    <p> We have many different tools to choose from!</p>
+   <p>To chose an amount just select the plus sign! <br> If ordering in bulk, simpily click on the number and type in the amount you want!</p>
+       <div class="cart">
+          <div class="col-md-12 col-lg-10 ">
+
+            <!-- start of item one-->
+             <div class="cart-item">
+                <div class="row">
+                   <div class="col-md-7 center-item">
+                      <img src="wow.jfif" alt="">
+                      <h5>Animal Feed</h5>
+                      <p> All for one! works for every animal.</p>
+                   </div>
+                   <div class="col-md-5 center-item">
+                      <div class="input-group number-spinner">
+                         <button id="phone-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                         <input id="phone-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                         <button id="phone-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                      </div>
+                      <h5>$ <span id="phone-total">0</span> </h5>
+                      <img src="wow.jfif" class="remove-item">
+                   </div>
+                </div>
+             </div>
+<!-- End of item one-->
+
+
+            <!-- start of item 2-->
+             <div class="cart-item">
+                <div class="row">
+                   <div class="col-md-7 center-item mx-auto">
+                      <img src="barbed wire.jfif" alt="">
+                      <h5>Barbed wire</h5>
+                      <p> keeps the animals where they belong!</p>
+                   </div>
+                   <div class="col-md-5 center-item">
+                      <div class="input-group number-spinner">
+                         <button id="case-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                         <input id="case-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                         <button  id="case-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                      </div>
+                      <h5>$ <span id="case-total">0</span> </h5>
+                      <img src="images/remove.png" alt="" class="remove-item">
+                   </div>
+                </div>
+             </div>
+   <!-- End of item 2-->
+
+ <div class="cart-item">
+    <div class="row">
+       <div class="col-md-7 center-item mx-auto">
+          <img src="gcombine harvester.jfif" alt="">
+          <h5>Combine harvester</h5>
+          <p>Comes at a price no one could resist.</p>
+       </div>
+
+       <div class="col-md-5 center-item">
+          <div class="input-group number-spinner">
+             <button id="supplies1-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+             <input id="supplies1-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+             <button id="supplies1-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+          </div>
+          <h5>$ <span id="supplies1-total">0</span> </h5>
+          <img src="Close.png" alt="" class="remove-item">
+       </div>
+    </div>
+ </div>
+
+ <!-- End of item 3-->
+
+ <div class="cart-item">
+   <div class="row">
+      <div class="col-md-7 center-item mx-auto">
+         <img src="cultivator.jfif" alt="">
+         <h5>Cultivator</h5>
+         <p> For all  your tilling needs.</p>
+      </div>
+
+      <div class="col-md-5 center-item">
+         <div class="input-group number-spinner">
+            <button id="supplies-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+            <input placeholder="0" id="supplies-number" type="number" min="0" class="form-control text-center" value="0">
+            <button id="supplies-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+         </div>
+         <h5>$ <span id="supplies-total">0</span> </h5>
+         <img src="Close.png" alt="" class="remove-item">
+      </div>
+   </div>
+</div>
+
+    <!-- End of item 4-->
+
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="pricy.jfif" alt="">
+              <h5>Fertilzer</h5>
+              <p> Plant food. yummy.</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies2-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies2-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies2-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies2-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 5-->
+     
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="spreader.jfif" alt="">
+              <h5>Fertilzer Spreader</h5>
+              <p> Cant buy fertilizer without buying the spreader!</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies3-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies3-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies3-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies3-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 6-->
+     
+    
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="greenhouse.jfif" alt="">
+              <h5>Greenhouse</h5>
+              <p> Keeps plants in a controlled enviroment.</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies4-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies4-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies4-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies4-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 7-->
+     
+    
+
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="harvester.jfif" alt="">
+              <h5>harvester</h5>
+              <p> the most efficent way to collect crops, dont mistake this for the combine harvester.</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies5-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies5-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies5-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies5-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 8-->
+     
+    
+
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="hay bales.jfif" alt="">
+              <h5>Hay bales</h5>
+              <p>Can't have most live stock without it!</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies6-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies6-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies6-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies6-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 9-->
+     
+    
+
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="uh.jfif" alt="">
+              <h5>Jib Crane</h5>
+              <p> Sometimes things can be heavy...but thats what these guys are for!</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies7-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies7-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies7-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies7-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+
+    <!-- End of item 10-->
+
+
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="feeder.jfif" alt="">
+              <h5>Livestock feeders</h5>
+              <p> Help distribute food to your animals!</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies8-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies8-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies8-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies8-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 11-->
+     
+    
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="mulcher.jfif" alt="">
+              <h5>Mulcher</h5>
+              <p> Creates great compost!</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies9-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies9-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies9-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies9-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 12-->    
+
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="hand pump sprayer.jfif" alt="">
+              <h5>Orchard Sprayer.</h5>
+              <p> helps keep the bugs in check!</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies10-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies10-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies10-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies10-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 13-->    
+
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="plow.jfif" alt="">
+              <h5>Plow</h5>
+              <p> Helps break up the soil.</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies11-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies11-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies11-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies11-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 14-->    
+
+    <div class="cart-item">
+        <div class="row">
+           <div class="col-md-7 center-item mx-auto">
+              <img src="is this it.jfif" alt="">
+              <h5>Seeder</h5>
+               <p> efficently plants your seeds!</p>
+           </div>
+    
+           <div class="col-md-5 center-item">
+              <div class="input-group number-spinner">
+                 <button id="supplies12-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                 <input id="supplies12-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+                 <button id="supplies12-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+              </div>
+              <h5>$ <span id="supplies12-total">0</span> </h5>
+              <img src="Close.png" alt="" class="remove-item">
+           </div>
+        </div>
+     </div>
+    <!-- End of item 15-->
+     
+
+
+
+    
+    <div class="cart-item">
+      <div class="row">
+         <div class="col-md-7 center-item mx-auto">
+            <img src="tractor.jfif" alt="">
+            <h5>Tractor</h5>
+             <p> Essential work horse of the farm.</p>
+         </div>
+  
+         <div class="col-md-5 center-item">
+            <div class="input-group number-spinner">
+               <button id="supplies13-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+               <input id="supplies13-number" placeholder="0" type="number" min="0" class="form-control text-center" value="0">
+               <button id="supplies13-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+            </div>
+            <h5>$ <span id="supplies13-total">0</span> </h5>
+            <img src="Close.png" alt="" class="remove-item">
+         </div>
+      </div>
+   </div>
+
+
+      <!-- End of item 16-->
+    
+             <div class="cart-item">
+                <div class="row g-2">
+
+                   <div class="col-6">
+                      <h5>Subtotal: </h5>
+                      <h5>Tax:</h5>
+                      <h5>Total:</h5>
+                   </div>
+
+                   <div class="col-6 status">
+                      <h5>$<span id="sub-total">0</span></h5>
+                      <h5>$<span id="tax-amount">0</span></h5>
+                      <h5>$<span id="total-price">0</span></h5>
+                   </div>
+                   
+                </div>
+             </div>
+             <div class="col-md-12 pt-4 pb-4">
+                <button type="button" class="btn btn-success check-out">Check Out</button>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+    <style>
+        body {
+            background: linear-gradient(#887405, #07bb67);
+            background-size: 100% 100%;
+        }
+        p#text {
+            color: #0e3d2b;
+            font-size: 0px;
+            font-weight: 500;
+            transition: 0.5s;
+            pointer-events: none;
+        }
+        .cta {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .cta button {
+            font-size: 20px;
+            color: #0edbc0;
+            font-weight: bold;
+        }
+        .cta button {
+            background-color: #0edbc0;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .cta button:hover
+        {
+            background-color: #0e3d2b;
+            color: #d2e663;
+            font-weight: 500;
+            font-size: 5em;
+            border-radius: 20%;
+            transition: 0.8s;
+            cursor: pointer;
+        }
+        .row img {
+            width: calc(100% - 40%);
+            height: calc(100% - 30%);
+            border-radius: 20%;
+        }
+        .logo {
+            width: 50%;
+            height: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+        p {
+            font-size: 20px;
+            font-weight: 10;
+            color: #fff;
+            text-align: center;
+        }
+        h2 {
+            font-size: 30px;
+            font-weight: 10;
+            color: #fff;
+            text-align: center;
+        }
+         h2:hover {
+               color: #5ccf0f;
+               text-shadow: 0 40px 24px #216e03;
+         }
+        h5 {
+            font-size: 5cqb;
+            color: rgb(219, 226, 215);
+            font-weight: 150;
+            text-shadow: 0 40px 24px #216e03;
+        }
+        h2:hover {
+            color: #5ccf0f;
+            text-shadow: 0 40px 24px #216e03;
+        }
+        .cart {
+            margin: 20px 0;
+            background-color: #c7a611;
+            padding: 12px;
+            width: 100%;
+        }
+        .row {
+            margin: 0 auto;
+            width: 100%;
+        }
+         .col-md-12 {
+            margin: 0 auto;
+            width: 100%;
+         }
+        .total-price {
+            padding-bottom:15px;
+        }
+        .cart-item {
+            background-color: #ad7712;
+            border-radius: 50px;
+            padding: 15px 0px;
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 12px;
+            
+        }
+        .center-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .cart-item img {
+            width: 115px;
+        }
+        .cart-item img {
+            width: 115px;
+        }
+        .cart-item h5 {
+            padding: 0 45px;
+        }
+        .cart-item .remove-item {
+            width: 0px!important;
+
+        }
+        .btn-default {
+            background-color: #10a53d;
+            border-radius: 60%;
+        }
+        .cart-item .form-control
+        {
+        background-color: #e0af0d;
+        border: darkgreen;
+        width: 55px;
+        border-radius: 10px!important;
+        font-weight: 700;
+        border-radius: 50%;
+        font-size: 20px;
+        }
+        .input {
+            width: 10px;
+            margin: 0 auto;
+        }
+        .input-group {
+            width: unset;
+            display: flex;
+            width: calc(100% - 60%);
+            flex-wrap: nowrap;
+        }
+        .status {
+            text-align: right;
+            padding: 0 20px;
+        }
+        .check-out {
+            float: middle;
+            padding: 10px 30px; 
+            font-size: 19px;
+            background-color: #073b23;
+            border-radius: 50px;
+            border: none;
+        }
+    </style>
+<script>
+   
+function upadateCaseNumber(product, price, isIncreasing){
+    const caseInput = document.getElementById(product + '-number');
+    let caseNumber = caseInput.value;
+            if(isIncreasing){
+                caseNumber = parseInt(caseNumber) + 1;
+            }
+            
+    else if(caseNumber > 0){
+           caseNumber = parseInt(caseNumber) - 1;
+         }
+        
+        caseInput.value = caseNumber;
+    // update case total 
+    const caseTotal = document.getElementById(product + '-total');
+    caseTotal.innerText = caseNumber * price;
+    calculateTotal();
+    }
+   // Ensure initial prices are rounded to two decimal places
+   function setInitialPrices() {
+      document.getElementById('phone-total').innerText = roundToTwo(getInputvalue('phone') * 12.50);
+      document.getElementById('case-total').innerText = roundToTwo(getInputvalue('case') * 12.50);
+      document.getElementById('supplies-total').innerText = roundToTwo(getInputvalue('supplies') * 29.99);
+      document.getElementById('supplies1-total').innerText = roundToTwo(getInputvalue('supplies') * 29.99);
+      document.getElementById('supplies2-total').innerText = roundToTwo(getInputvalue('supplies1') * 29.99);
+      document.getElementById('supplies3-total').innerText = roundToTwo(getInputvalue('supplies2') * 29.99);
+      document.getElementById('supplies4-total').innerText = roundToTwo(getInputvalue('supplies3') * 29.99);
+      document.getElementById('supplies5-total').innerText = roundToTwo(getInputvalue('supplies4') * 29.99);
+      document.getElementById('supplies6-total').innerText = roundToTwo(getInputvalue('supplies5') * 29.99);
+      document.getElementById('supplies7-total').innerText = roundToTwo(getInputvalue('supplies6') * 29.99);
+      document.getElementById('supplies8-total').innerText = roundToTwo(getInputvalue('supplies7') * 29.99);
+      document.getElementById('supplies9-total').innerText = roundToTwo(getInputvalue('supplies8') * 29.99);
+      document.getElementById('supplies10-total').innerText = roundToTwo(getInputvalue('supplies9') * 29.99);
+      document.getElementById('supplies11-total').innerText = roundToTwo(getInputvalue('supplies10') * 29.99);
+      document.getElementById('supplies12-total').innerText = roundToTwo(getInputvalue('supplies11') * 29.99);
+      document.getElementById('supplies13-total').innerText = roundToTwo(getInputvalue('supplies13') * 29.99);
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   }
+
+   // Update upadateCaseNumber to round totals
+   function upadateCaseNumber(product, price, isIncreasing){
+      const caseInput = document.getElementById(product + '-number');
+      let caseNumber = caseInput.value;
+      if(isIncreasing){
+         caseNumber = parseInt(caseNumber) + 1;
+      }
+      else if(caseNumber > 0){
+         caseNumber = parseInt(caseNumber) - 1;
+      }
+      caseInput.value = caseNumber;
+      // update case total, rounded
+      const caseTotal = document.getElementById(product + '-total');
+      caseTotal.innerText = roundToTwo(caseNumber * price);
+      calculateTotal();
+   }
+
+   // Set initial prices on page load
+   window.onload = setInitialPrices;
+
+    function getInputvalue(product){
+        const productInput = document.getElementById(product + '-number');
+        const productNumber = parseInt(productInput.value);
+        return productNumber;
+    }
+    function calculateTotal(){
+        const phoneTotal = getInputvalue('phone') * 12.50;
+        const caseTotal = getInputvalue('case') * 12.50;
+        const suppliesTotal = getInputvalue('supplies') * 29.99;
+        const subTotal = phoneTotal + caseTotal + suppliesTotal;
+        const tax = subTotal / 100 * 8;
+        const totalPrice = subTotal + tax;
+
+        // update on the html 
+        document.getElementById('sub-total').innerText = subTotal;
+        document.getElementById('tax-amount').innerText = tax;
+        document.getElementById('total-price').innerText = totalPrice;
+
+    }
+
+
+   function roundToTwo(num) {
+      return Math.round((num + Number.EPSILON) * 100) / 100;
+   }
+   // Override calculateTotal to round to hundredths
+   function calculateTotal(){
+      const phoneTotal = getInputvalue('phone') * 12.59;
+      const caseTotal = getInputvalue('case') * 64.49;
+      const suppliesTotal = getInputvalue('supplies') * 29.99;
+      //these are swapped
+      const supplies1Total = getInputvalue('supplies1') * 2500.99;
+
+//furtilizer//   
+   const supplies2Total = getInputvalue('supplies2') * 32.99;
+      // fertilizer spreader
+      const supplies3Total = getInputvalue('supplies3') * 329.99;
+      //greenhouse
+      const supplies4Total = getInputvalue('supplies4') * 379.99;
+      //harvster
+      const supplies5Total = getInputvalue('supplies5') * 529.99;
+      //hay bales
+      const supplies6Total = getInputvalue('supplies6') * 12.99;
+      //jib crane
+      const supplies7Total = getInputvalue('supplies7') * 500.00;
+      //livestock feeders
+      const supplies8Total = getInputvalue('supplies8') * 159.50;
+      //mulcher
+      const supplies9Total = getInputvalue('supplies9') * 629.99;
+      //orchard sprayer
+      const supplies10Total = getInputvalue('supplies10') * 15.30;
+      //plow
+      const supplies11Total = getInputvalue('supplies11') * 400.99;
+      //seeder
+      const supplies12Total = getInputvalue('supplies12') * 126.25;
+      //tractor
+      const supplies13Total = getInputvalue('supplies13') * 8000.50;
+      // calculate subtotal, tax, and total price
+      const subTotal = phoneTotal + caseTotal +  suppliesTotal + supplies1Total + supplies2Total + supplies3Total + supplies4Total + supplies5Total + supplies6Total + supplies7Total + supplies8Total + supplies9Total + supplies10Total + supplies11Total + supplies12Total + supplies13Total;
+      const tax = subTotal * 0.08;
+      const totalPrice = subTotal + tax;
+
+      // update on the html, rounded to hundredths
+      document.getElementById('sub-total').innerText = roundToTwo(subTotal);
+      document.getElementById('tax-amount').innerText = roundToTwo(tax);
+      document.getElementById('total-price').innerText = roundToTwo(totalPrice);
+   }
+
+document.getElementById('case-plus').addEventListener('click',function(){
+        // const caseInput = document.getElementById('case-number');
+        // const caseNumber = caseInput.value;
+        // caseInput.value = parseInt(caseNumber) + 1;
+   upadateCaseNumber('case', 64.49 ,true);
+});
+
+document.getElementById('case-minus').addEventListener('click',function(){
+    // const caseInput = document.getElementById('case-number');
+//     const caseNumber = caseInput.value;
+//    if(caseInput.value > 1){
+//         caseInput.value = parseInt(caseNumber) - 1;
+//    }
+upadateCaseNumber('case', 64.49, false);
+});
+
+// phone price update using add event listener 
+document.getElementById('phone-plus').addEventListener('click',function(){
+    upadateCaseNumber('phone',12.50, true);
+});
+
+
+document.getElementById('phone-minus').addEventListener('click',function(){
+    upadateCaseNumber('phone',12.50 , false);
+});
+
+// supplies price update using add event listener
+document.getElementById('supplies-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies',29.99, true);
+});
+document.getElementById('supplies-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies',29.99, false);
+});
+
+document.getElementById('supplies1-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies1',2500.99, true);
+});
+document.getElementById('supplies1-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies1',2500.99, false);
+});
+
+
+document.getElementById('supplies2-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies2',32.99, true);
+});
+document.getElementById('supplies2-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies2',32.99, false);
+});
+
+
+document.getElementById('supplies3-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies3',329.99, true);
+});
+document.getElementById('supplies3-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies3',329.99, false);
+});
+
+document.getElementById('supplies4-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies4',379.99, true);
+});
+document.getElementById('supplies4-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies4',379.99, false);
+});
+
+document.getElementById('supplies5-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies5',529.99, true);
+});
+document.getElementById('supplies5-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies5',529.99, false);
+});
+
+document.getElementById('supplies6-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies6',12.99, true);
+});
+document.getElementById('supplies6-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies6',12.99, false);
+});
+
+document.getElementById('supplies7-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies7',500.00, true);
+});
+document.getElementById('supplies7-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies7',500.00, false);
+});
+
+document.getElementById('supplies8-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies8',159.50, true);
+});
+document.getElementById('supplies8-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies8',159.50, false);
+});
+
+document.getElementById('supplies9-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies9',629.99, true);
+});
+document.getElementById('supplies9-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies9',629.99, false);
+});
+
+document.getElementById('supplies10-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies10',15.30, true);
+});
+document.getElementById('supplies10-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies10',15.30, false);
+});
+
+document.getElementById('supplies11-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies11',400.99, true);
+});
+document.getElementById('supplies11-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies11',400.99, false);
+});
+
+document.getElementById('supplies12-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies12',126.25, true);
+});
+document.getElementById('supplies12-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies12',126.25, false);
+});
+
+document.getElementById('supplies13-plus').addEventListener('click',function(){
+    upadateCaseNumber('supplies13',8000.50, true);
+});
+
+document.getElementById('supplies13-minus').addEventListener('click',function(){
+    upadateCaseNumber('supplies13',8000.50, false);
+});
+document.querySelector(".cta").addEventListener("mouseover", function() {
+    let textElement = document.getElementById("text");
+    textElement.style.color = "gold";
+    textElement.style.fontSize = "23px"; // Adjust the size
+});
+
+document.querySelector(".cta").addEventListener("mouseout", function() {
+    let textElement = document.getElementById("text");
+    textElement.style.color = ""; // Resets to default
+    textElement.style.fontSize = ""; // Resets to default
+});
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>    
+</body>
+</html>
